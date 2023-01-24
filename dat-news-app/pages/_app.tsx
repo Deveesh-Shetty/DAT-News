@@ -8,7 +8,7 @@ import dataProvider from "@pankod/refine-simple-rest";
 import { HeadlessInferencer } from "@pankod/refine-inferencer/headless";
 import { appWithTranslation, useTranslation } from "next-i18next";
 import { authProvider } from "src/authProvider";
-
+import "src/styles/globals.css";
 const API_URL = "https://api.fake-rest.refine.dev";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
