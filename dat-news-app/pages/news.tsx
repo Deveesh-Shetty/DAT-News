@@ -37,6 +37,7 @@ export default function news() {
                 title={news.title}
                 description={news.description}
               />
+              {/* <img src={news.urlToImage} alt="" /> */}
             </div>
           ))
 

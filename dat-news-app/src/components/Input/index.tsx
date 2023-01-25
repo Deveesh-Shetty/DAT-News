@@ -10,7 +10,6 @@ export default function index() {
 					className='text-xl w-full bg-transparent border-none outline-none leading-8 font-bold'
 				/>
 				  <button type='button'
-				  	
 				  >
 					  <Search />
 				</button>
