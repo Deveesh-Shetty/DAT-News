@@ -12,8 +12,7 @@ const mockUsers = [
     email: "editor@refine.dev",
     roles: ["editor"],
   },
-  
-]; 
+];
 
 export const authProvider: AuthProvider = {
   login: ({ email, username, password, remember }) => {

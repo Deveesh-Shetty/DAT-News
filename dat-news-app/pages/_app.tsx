@@ -43,11 +43,8 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <Partytown debug={true} forward={["dataLayer.push"]} />
       </Head>
       <Navbar />
-      <div
-      className='w-[50rem]  mx-auto mt-5 mb-5'
-      >
-
-      <Input />
+      <div className="w-[50rem]  mx-auto mt-5 mb-5">
+        <Input />
       </div>
       <Component {...pageProps} />
     </Refine>
