@@ -25,14 +25,14 @@ export default function news() {
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="md:mx-96 mt-4 debug">
+      <div className="md:mx-96 mt-4">
         <h1 className="md:text-5xl md:ml-6 font-extrabold text-md">{title}</h1>
-        <span className="text-lg ml-6 font-light mt-2">
-          Sat 23.03.2021 12:00
-        </span>
-        <div className="ml-6 flex flex-row gap-4  items-center">
-          <span className="text-sm font-semibold">By</span>
-          Akhil MG
+        <div className="mt-3">
+          <span className="text-lg ml-6 font-light">Sat 23.03.2021 12:00</span>
+          <div className="ml-6 flex flex-row gap-4  items-center">
+            <span className="text-sm font-semibold">By</span>
+            Akhil MG
+          </div>
         </div>
         <h3 className="md:text-lg md:ml-6 font-semibold mt-5">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem
@@ -104,7 +104,6 @@ export default function news() {
           harum nobis, autem voluptates soluta? Placeat iusto laborum quasi
           fugit quas mollitia alias quis incidunt.
         </div>
-      
       </div>
     </>
   );
