@@ -21,7 +21,7 @@ const navigationItems = [
   },
 ]
 
-export default function index() {
+export default function Navbar() {
   const { list } = useNavigation()
   return (
     <div>
