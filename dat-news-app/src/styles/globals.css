@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.list-item {
+  @apply relative list-none;
+}
+.list-item::after {
+  content: "";
+  position: absolute;
+  inset: 95% 0 0 0;
+  @apply bg-blue-500;
+  transform: scaleX(0);
+  transition: transform 300ms ease-in-out;
+}
+.list-item:hover::after {
+  transform: scaleX(1);
+}
