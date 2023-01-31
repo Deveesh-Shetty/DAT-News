@@ -1,26 +1,25 @@
-import React from "react";
-import { AppProps } from "next/app";
-import Head from "next/head";
-import { Refine } from "@pankod/refine-core";
-import routerProvider from "@pankod/refine-nextjs-router";
-import { Partytown } from "@builder.io/partytown/react";
-import dataProvider from "@pankod/refine-simple-rest";
-import { HeadlessInferencer } from "@pankod/refine-inferencer/headless";
-import { appWithTranslation, useTranslation } from "next-i18next";
-import { authProvider } from "src/authProvider";
-import "src/styles/globals.css";
-import Navbar from "@components/Navbar/index";
-import Input from "@components/Input/index";
-const API_URL = "https://api.fake-rest.refine.dev";
+import React from "react"
+import { AppProps } from "next/app"
+import Head from "next/head"
+import { Refine } from "@pankod/refine-core"
+import routerProvider from "@pankod/refine-nextjs-router"
+import { Partytown } from "@builder.io/partytown/react"
+import dataProvider from "@pankod/refine-simple-rest"
+import { HeadlessInferencer } from "@pankod/refine-inferencer/headless"
+import { appWithTranslation, useTranslation } from "next-i18next"
+import { authProvider } from "src/authProvider"
+import "src/styles/globals.css"
+import Navbar from "@components/Navbar/Navbar"
+const API_URL = "https://api.fake-rest.refine.dev"
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation()
 
   const i18nProvider = {
     translate: (key: string, params: object) => t(key, params),
     changeLocale: (lang: string) => i18n.changeLanguage(lang),
     getLocale: () => i18n.language,
-  };
+  }
 
   return (
     <Refine
@@ -43,12 +42,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <Partytown debug={true} forward={["dataLayer.push"]} />
       </Head>
       <Navbar />
-      <div className="w-[50rem]  mx-auto mt-5 mb-5">
-        <Input />
-      </div>
       <Component {...pageProps} />
     </Refine>
-  );
+  )
 }
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp)
