@@ -21,8 +21,8 @@ export default function news() {
   return (
     <div className="mx-8">
       <div className="flex items-center font-extrabold my-4 text-center gap-4 justify-between w-full">
-        <p className="text-4xl">Headlines</p>
-        <div className="w-3/5">
+        <p className="text-4xl ml-4">Headlines</p>
+        <div className="w-3/5 mr-4">
           <SearchBox />
         </div>
       </div>
