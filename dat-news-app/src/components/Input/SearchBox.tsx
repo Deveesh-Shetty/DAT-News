@@ -1,5 +1,19 @@
-import { Search } from "react-feather"
-export default function SearchBox() {
+import { Search } from "react-feather";
+import { useState, useEffect } from "react";
+export default function index() {
+  const [searchClicked, setSearchClicked] = useState(false);
+  useEffect(() => {
+    if (searchClicked) {
+      // add backdrop filter
+      document.body.classList.add("backdrop-filter");
+      document.body.classList.add("backdrop-blur-sm");
+    } else {
+      // remove backdrop filter
+      document.body.classList.remove("backdrop-filter");
+      document.body.classList.remove("backdrop-blur-sm");
+    }
+  }, [searchClicked]);
+
   return (
     <div>
       <div className="w-full">
@@ -7,13 +21,15 @@ export default function SearchBox() {
           <input
             placeholder="Search for any word..."
             type="text"
-            className="text-xl w-full bg-transparent border-none outline-none py-1 font-bold"
+            className="text-xl w-full bg-transparent border-none outline-none leading-8 font-bold"
+            onFocus={() => setSearchClicked(true)}
+            onBlur={() => setSearchClicked(false)}
           />
-          <button type="button">
+          <button type="button" title="Search">
             <Search />
           </button>
         </form>
       </div>
     </div>
-  )
+  );
 }
