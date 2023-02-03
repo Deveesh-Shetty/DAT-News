@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         ...("props" in authenticationValues ? authenticationValues.props : {}),
         ...i18nProps,
       },
-    };    
+    };
   }
 
   return {
