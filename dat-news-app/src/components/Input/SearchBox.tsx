@@ -1,23 +1,53 @@
 import { Search } from "react-feather";
-import { useState, useEffect } from "react";
+import {
+  useState, useEffect,createContext
+} from "react";
+import axios from "axios";
+import {
+  useCustom,
+  useApiUrl,
+} from "@pankod/refine-core";
+
+interface Article {
+  title: string;
+  description: string;
+  url: string;
+}
+interface NewsContextValue {
+  data: Article[];
+}
+
+export const NewsContext = createContext<NewsContextValue>({
+  data: []
+});
+
 export default function index() {
   const [searchClicked, setSearchClicked] = useState(false);
-  useEffect(() => {
-    if (searchClicked) {
-      // add backdrop filter
-      document.body.classList.add("backdrop-filter");
-      document.body.classList.add("backdrop-blur-sm");
-    } else {
-      // remove backdrop filter
-      document.body.classList.remove("backdrop-filter");
-      document.body.classList.remove("backdrop-blur-sm");
-    }
-  }, [searchClicked]);
+  const [searchData, setSearchData] = useState([]);
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    console.log("searching...");
+    axios
+      .get(
+        `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+      )
+      .then((res) => {
+        console.log(res.data.articles);
+        setSearchData(res.data.articles[0]);
+      });
+
+  };
+
+  
 
   return (
     <div>
+      <NewsContext.Provider value={{data:searchData}}>
       <div className="w-full">
-        <form className="flex justify-between items-center w-full py-2 px-10 rounded-md bg-[#f4f4f4]">
+        <form
+          method="POST"
+          onSubmit={handleSearch}
+          className="flex justify-between items-center w-full py-2 px-10 rounded-md bg-[#f4f4f4]">
           <input
             placeholder="Search for any word..."
             type="text"
@@ -29,7 +59,8 @@ export default function index() {
             <Search />
           </button>
         </form>
-      </div>
+        </div>
+        </NewsContext.Provider>
     </div>
   );
 }

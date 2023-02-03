@@ -10,7 +10,7 @@ export default function news() {
   const router = useRouter();
   const { title } = router.query;
   console.log(title);
-  const apiKey = "edb4da861e9d4cad9563a6c5fe3ff158";
+  const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
   useEffect(() => {
     axios
       .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
