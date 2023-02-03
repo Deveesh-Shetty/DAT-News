@@ -15,6 +15,7 @@ export default function news() {
       .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
       .then((res) => {
         console.log(res.data.articles)
+        console.log(res.data.articles[0].urlToImage)
         setNewsData(res.data.articles)
       })
   }, [])
